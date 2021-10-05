@@ -10,7 +10,7 @@ public class ServerStr
     String stringaModificata = null;
     BufferedReader inDalClient;
     DataOutputStream outVersoClient;
-}
+
 
 public Socket attendi()
 {
@@ -47,7 +47,13 @@ public void comunica()
              outVersoClient.writeBytes( stringaModificata+'\n');
              
              System.out.println("9 SERVER: fine elaborazione ... buona notte!");
-             client.close()
+             client.close();
+    }
+    catch (Exception e)
+    {
+        System.out.println(e.getMessage());
+        System.out.println("Errore durante la comunicazione col server!");
+        System.exit(1);
     }
 }
 
@@ -55,4 +61,5 @@ public static void main(String args[]){
     ServerStr servente = new ServerStr();
     servente.attendi();
     servente.comunica();
+}
 }

@@ -38,13 +38,13 @@ public class ClientStr {
      public void comunica(){
          try{
              System.out.println("4... inserisci la stringa da trasfmettere al server:"+"\n");
-             stringaUtente = tastiera.readLine();
+             stringUtente = tastiera.readLine();
              System.out.println ("5... inserisci la stringa al server e attendo ...");
-             outVersoServer.writeBytes( stringaUtente+'\n');
-             stringaRicevutaDalServer=inDalServer.readLine();
-             System.out.println("8 ... risposta del server" + '\n'+stringaRicevutaDalServer);
+             outVersoServer.writeBytes( stringUtente+'\n');
+             stringRicevutaDalServer=inDalServer.readLine();
+             System.out.println("8 ... risposta del server" + '\n'+stringRicevutaDalServer);
              System.out.println("9 CLIENT: termina elaborazione e chiude connessione");
-             miosocket.close()
+             miosocket.close();
          }
          catch (Exception e)
          {
@@ -55,10 +55,10 @@ public class ClientStr {
      }
 
      public static void main (String args[]){
-         ClientStr cliente = new ClientStr();
-         cliente.connetti();
-         cliente.comunica();
-     }
+        ClientStr cliente = new ClientStr();
+        cliente.connetti();
+        cliente.comunica();
+    }
 
 
     }
